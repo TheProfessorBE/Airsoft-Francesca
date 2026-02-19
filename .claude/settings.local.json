@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "WebFetch(domain:airsoftadventure.nl)",
+      "WebFetch(domain:airsoftadventure.be)",
+      "WebFetch(domain:www.airsoftadventure.be)"
+    ]
+  }
+}
