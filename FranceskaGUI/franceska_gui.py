@@ -1,6 +1,6 @@
 """
 HARDPOINT: FRANCESKA
-NukeTown, Malle – Airsoft Adventure
+Hardpoint gamemode controller
 
 Reads Arduino serial output and displays live scores for Red vs Blue.
 
@@ -32,7 +32,7 @@ try:
 except ImportError:
     HAS_SERIAL = False
 
-# ── Airsoft Adventure / Nuketown logo (from airsoftadventure.be) ─────────────
+# ── Logo ─────────────────────────────────────────────────────────────────────
 LOGO_URL  = "https://pagemaker.b-cdn.net/media/71928/400x50.png"
 LOGO_SIZE = (280, 35)   # display size in the header
 
@@ -114,7 +114,7 @@ class HardpointGUI:
         self.holding    = "NEUTRAL"
         self.reader: SerialReader | None = None
 
-        root.title("HARDPOINT: FRANCESKA – NukeTown Malle")
+        root.title("HARDPOINT: FRANCESKA")
         root.configure(bg=BG)
         root.geometry("920x540")
         root.resizable(False, False)
@@ -246,7 +246,7 @@ class HardpointGUI:
             fg=FG, bg=BG, font=("Helvetica Neue", 34, "bold"),
         ).pack()
         tk.Label(
-            header, text="NukeTown · Malle",
+            header, text="Hardpoint Gamemode",
             fg=NEUTRAL_COL, bg=BG, font=("Helvetica Neue", 13),
         ).pack()
 
