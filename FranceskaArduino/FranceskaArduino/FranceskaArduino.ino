@@ -18,10 +18,10 @@
 //   SPK1/SPK2 → speaker (4–8 Ω)
 //
 // ── SD card track list (place in /mp3/ folder) ───────────────────────────────
-//   0001.mp3 → "Red has the hardpoint"
-//   0002.mp3 → "Blue has the hardpoint"
-//   0003.mp3 → "Red in the lead"
-//   0004.mp3 → "Blue in the lead"
+//   0001.mp3 → "Red in the lead"
+//   0002.mp3 → "Blue in the lead"
+//   0003.mp3 → "Red has the hardpoint"
+//   0004.mp3 → "Blue has the hardpoint"
 //
 // ── Reset sequence ───────────────────────────────────────────────────────────
 //   RED → (neutral) → BLUE → (neutral) → RED → (neutral = confirm)
@@ -45,10 +45,10 @@ SerialPIO          dfSerial(D8, D10);
 DFRobotDFPlayerMini dfPlayer;
 
 // ── Audio tracks ─────────────────────────────────────────────────────────────
-const uint8_t TRACK_RED_HOLDS  = 1;
-const uint8_t TRACK_BLUE_HOLDS = 2;
-const uint8_t TRACK_RED_LEAD   = 3;
-const uint8_t TRACK_BLUE_LEAD  = 4;
+const uint8_t TRACK_RED_LEAD   = 1;
+const uint8_t TRACK_BLUE_LEAD  = 2;
+const uint8_t TRACK_RED_HOLDS  = 3;
+const uint8_t TRACK_BLUE_HOLDS = 4;
 
 // Circular queue — announcements wait until the current clip finishes
 const uint8_t QUEUE_SIZE = 8;
@@ -202,7 +202,7 @@ void setup() {
   dfSerial.begin(9600);
   delay(200);                          // let DFPlayer boot
   if (dfPlayer.begin(dfSerial, false)) // false = no ACK, faster response
-    dfPlayer.volume(25);               // 0–30
+    dfPlayer.volume(5);               // 0–30
   else
     Serial.println(">> DFPlayer init failed");
 

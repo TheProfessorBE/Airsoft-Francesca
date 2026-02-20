@@ -70,10 +70,10 @@ Audio clips are queued and played in order. Each clip waits for the previous one
 
 | File | Trigger |
 |---|---|
-| `0001.mp3` | Switch flips to Red — *"Red has the hardpoint"* |
-| `0002.mp3` | Switch flips to Blue — *"Blue has the hardpoint"* |
-| `0003.mp3` | Red score overtakes Blue — *"Red in the lead"* |
-| `0004.mp3` | Blue score overtakes Red — *"Blue in the lead"* |
+| `0001.mp3` | Red score overtakes Blue — *"Red in the lead"* |
+| `0002.mp3` | Blue score overtakes Red — *"Blue in the lead"* |
+| `0003.mp3` | Switch flips to Red — *"Red has the hardpoint"* |
+| `0004.mp3` | Switch flips to Blue — *"Blue has the hardpoint"* |
 
 Place the files in a folder named `mp3` on the SD card root:
 ```
