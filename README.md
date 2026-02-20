@@ -12,6 +12,7 @@ Two teams — Red and Blue — compete to hold a single capture point. Time spen
 | Microcontroller | Seeed XIAO RP2040 |
 | Switch | On-Off-On three-way switch |
 | Displays | 2× TM1637 4-digit 7-segment |
+| Audio | DFPlayer Mini + SD card + speaker (4–8 Ω) |
 
 ### Wiring
 
@@ -38,6 +39,16 @@ VCC  →  3.3V
 GND  →  GND
 ```
 
+**DFPlayer Mini**
+```
+VCC  →  VBUS (5V from USB)
+GND  →  GND
+TX   →  D10  (Arduino RX, direct)
+RX   →  D8   (Arduino TX, via 1kΩ resistor)
+BUSY →  D9   (LOW = playing, HIGH = idle)
+SPK1/SPK2 → speaker (4–8 Ω)
+```
+
 ---
 
 ## How it works
@@ -53,6 +64,27 @@ RED: 42s  |  BLUE: 17s  |  Holding: RED
 
 The Python GUI reads this and displays it on screen.
 
+### Voice announcements
+
+Audio clips are queued and played in order. Each clip waits for the previous one to finish before starting.
+
+| File | Trigger |
+|---|---|
+| `0001.mp3` | Switch flips to Red — *"Red has the hardpoint"* |
+| `0002.mp3` | Switch flips to Blue — *"Blue has the hardpoint"* |
+| `0003.mp3` | Red score overtakes Blue — *"Red in the lead"* |
+| `0004.mp3` | Blue score overtakes Red — *"Blue in the lead"* |
+
+Place the files in a folder named `mp3` on the SD card root:
+```
+SD card
+└── mp3/
+    ├── 0001.mp3
+    ├── 0002.mp3
+    ├── 0003.mp3
+    └── 0004.mp3
+```
+
 ---
 
 ## Reset sequence
@@ -63,7 +95,7 @@ To reset both scores to zero without power-cycling, flip the switch through this
 RED → (neutral) → BLUE → (neutral) → RED → (neutral)
 ```
 
-The final neutral is the confirmation trigger. The Arduino zeroes both counters, updates the displays, and notifies the GUI.
+The final neutral is the confirmation trigger. The Arduino zeroes both counters, clears the audio queue, updates the displays, and notifies the GUI.
 
 > The switch physically passes through neutral between positions, so the sequence is: flip to Red, flip back, flip to Blue, flip back, flip to Red, flip back.
 
@@ -73,7 +105,13 @@ The final neutral is the confirmation trigger. The Arduino zeroes both counters,
 
 Located in [`FranceskaArduino/FranceskaArduino/FranceskaArduino.ino`](FranceskaArduino/FranceskaArduino/FranceskaArduino.ino).
 
-**Required library:** `TM1637` by Avishay Orpaz — install via Arduino IDE Library Manager.
+**Required libraries** — install via Arduino IDE Library Manager:
+
+| Library | Author |
+|---|---|
+| `TM1637` | Avishay Orpaz |
+| `DFRobotDFPlayerMini` | DFRobot |
+| `SerialPIO` | Built into the arduino-pico framework |
 
 **Timing constants** (top of sketch):
 
