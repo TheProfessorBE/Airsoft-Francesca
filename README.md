@@ -5,6 +5,20 @@ Two teams — Red and Blue — compete to hold a single capture point. Time spen
 
 ---
 
+## Build
+
+| Front | Internals (front) | Internals (rear) |
+|---|---|---|
+| ![Front of unit](Assets/Documentation/WhatsApp%20Image%202026-02-21%20at%2010.40.52%20(1).jpeg) | ![Internals front](Assets/Documentation/WhatsApp%20Image%202026-02-21%20at%2010.40.52.jpeg) | ![Internals rear](Assets/Documentation/WhatsApp%20Image%202026-02-21%20at%2010.40.51.jpeg) |
+
+3D printed enclosure housing the XIAO RP2040, two TM1637 7-segment displays, the three-way rotary switch, DFPlayer Mini, and a LiPo battery.
+
+**Demo video:**
+
+<video src="Assets/Documentation/WhatsApp%20Video%202026-02-21%20at%2010.40.53.mp4" controls width="640"></video>
+
+---
+
 ## Hardware
 
 | Component | Details |
