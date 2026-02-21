@@ -13,9 +13,7 @@ Two teams — Red and Blue — compete to hold a single capture point. Time spen
 
 3D printed enclosure housing the XIAO RP2040, two TM1637 7-segment displays, the three-way rotary switch, DFPlayer Mini, and a LiPo battery.
 
-**Demo video:**
-
-<video src="Assets/Documentation/WhatsApp%20Video%202026-02-21%20at%2010.40.53.mp4" controls width="640"></video>
+**Demo video:** [▶ Watch](Assets/Documentation/WhatsApp%20Video%202026-02-21%20at%2010.40.53.mp4)
 
 ---
 
